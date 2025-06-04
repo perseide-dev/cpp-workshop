@@ -1,0 +1,56 @@
+INICIO
+
+  DECLARAR constante R ← 4
+  MOSTRAR "Ingrese el número de items"
+  LEER n
+
+  CREAR matriz dinámica itemInfo de tamaño 2 x n (tipo string)
+  CREAR matriz dinámica m1 de tamaño R x n (tipo entero)
+
+  DECLARAR totalStock ← 0
+  DECLARAR totalStockPrice ← 0
+
+  CREAR arreglo tableName ← ["stock", "límite de stock", "precio por unidad"]
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    MOSTRAR "Ingrese el ID del item #(c + 1)"
+    LEER itemInfo[0][c]
+
+    MOSTRAR "Ingrese el nombre del item #(c + 1)"
+    LEER itemInfo[1][c]
+
+    PARA r DESDE 0 HASTA R - 2 HACER
+      MOSTRAR "Ingrese el " + tableName[r]
+      LEER m1[r][c]
+    FIN PARA
+
+    m1[3][c] ← m1[0][c] * m1[2][c]
+  FIN PARA
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    SI m1[0][c] < m1[1][c] ENTONCES
+      MOSTRAR "ALERTA: El stock del item " + itemInfo[1][c] + 
+              " con ID " + itemInfo[0][c] + 
+              " es menor al límite de stock."
+    FIN SI
+  FIN PARA
+
+  MOSTRAR "Tabla de items:"
+  MOSTRAR "ID\tNombre\tStock\tLímite\tPrecio Unit.\tTotal"
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    MOSTRAR itemInfo[0][c], itemInfo[1][c], m1[0][c], m1[1][c], m1[2][c], m1[3][c]
+  FIN PARA
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    totalStockPrice ← totalStockPrice + m1[3][c]
+    totalStock ← totalStock + m1[0][c]
+  FIN PARA
+
+  MOSTRAR "El precio total del stock es: " + totalStockPrice
+  MOSTRAR "El total de stock es: " + totalStock
+
+  LIBERAR memoria dinámica de itemInfo
+  LIBERAR memoria dinámica de m1
+
+FIN

@@ -1,0 +1,60 @@
+INICIAR PROGRAMA
+
+DECLARAR constante R ← 4
+IMPRIMIR "ingrese el numero de items"
+LEER n
+
+CREAR arreglo itemID[n] de tipo texto
+CREAR arreglo itemName[n] de tipo texto
+CREAR matriz m1[R][n] de tipo entero
+
+INICIALIZAR totalStock ← 0
+INICIALIZAR totalStockPrice ← 0
+
+CREAR arreglo tableName[3] ← ["stock", "limite de stock", "precio por unidad"]
+
+
+PARA c DESDE 0 HASTA n - 1 HACER
+    IMPRIMIR "ingrese el id"
+    LEER itemID[c]
+
+    IMPRIMIR "ingrese el nombre del item"
+    LEER itemName[c]
+
+    PARA r DESDE 0 HASTA 2 HACER
+        IMPRIMIR "ingrese el " + tableName[r]
+        LEER m1[r][c]
+    FIN PARA
+
+
+    m1[3][c] ← m1[0][c] * m1[2][c]
+FIN PARA
+
+
+PARA c DESDE 0 HASTA n - 1 HACER
+    SI m1[0][c] < m1[1][c] ENTONCES
+        IMPRIMIR "ALERTA: El stock del item" + itemName[c] + " con id " + itemID[c] + " es menor al limite de stock"
+    FIN SI
+FIN PARA
+
+
+IMPRIMIR "Tabla de items:"
+IMPRIMIR encabezados: "ID | Nombre | Stock | Limite de Stock | Precio por Unidad | Precio Total"
+
+PARA c DESDE 0 HASTA n - 1 HACER
+    IMPRIMIR itemID[c], itemName[c], m1[0][c], m1[1][c], m1[2][c], m1[3][c]
+FIN PARA
+
+
+PARA c DESDE 0 HASTA n - 1 HACER
+    totalStockPrice ← totalStockPrice + m1[3][c]
+FIN PARA
+IMPRIMIR "El precio total del stock es: " + totalStockPrice
+
+
+PARA c DESDE 0 HASTA n - 1 HACER
+    totalStock ← totalStock + m1[0][c]
+FIN PARA
+IMPRIMIR "El total de stock es: " + totalStock
+
+FINALIZAR PROGRAMA

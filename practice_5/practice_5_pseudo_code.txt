@@ -1,0 +1,63 @@
+INICIO
+
+  DECLARAR constante R = 4
+  MOSTRAR "Ingrese el número de items"
+  LEER n
+
+  CREAR arreglo itemID de tamaño n
+  CREAR arreglo itemName de tamaño n
+
+  CREAR m1 como puntero doble
+  PARA i DESDE 0 HASTA R-1 HACER
+    m1[i] ← nuevo arreglo de tamaño n
+  FIN PARA
+
+  DECLARAR totalStock ← 0
+  DECLARAR totalStockPrice ← 0
+
+  CREAR arreglo tableName = ["stock", "límite de stock", "precio por unidad"]
+
+  PARA c DESDE 0 HASTA n-1 HACER
+    MOSTRAR "Ingrese el ID"
+    LEER itemID[c]
+
+    MOSTRAR "Ingrese el nombre del ítem"
+    LEER itemName[c]
+
+    PARA r DESDE 0 HASTA R-2 HACER
+      MOSTRAR "Ingrese el " + tableName[r]
+      LEER m1[r][c]
+    FIN PARA
+
+    m1[3][c] ← m1[0][c] * m1[2][c]
+  FIN PARA
+
+  PARA c DESDE 0 HASTA n-1 HACER
+    SI m1[0][c] < m1[1][c] ENTONCES
+      MOSTRAR "ALERTA: El stock del ítem " + itemName[c] + 
+              " con ID " + itemID[c] + " es menor al límite de stock"
+    FIN SI
+  FIN PARA
+
+  MOSTRAR "ID\tNombre\tStock\tLímite de Stock\tPrecio por Unidad\tTotal"
+
+  PARA c DESDE 0 HASTA n-1 HACER
+    MOSTRAR itemID[c], itemName[c], m1[0][c], m1[1][c], m1[2][c], m1[3][c]
+  FIN PARA
+
+  PARA c DESDE 0 HASTA n-1 HACER
+    totalStockPrice ← totalStockPrice + m1[3][c]
+  FIN PARA
+  MOSTRAR "El precio total del stock es: " + totalStockPrice
+
+  PARA c DESDE 0 HASTA n-1 HACER
+    totalStock ← totalStock + m1[0][c]
+  FIN PARA
+  MOSTRAR "El total de stock es: " + totalStock
+
+  PARA i DESDE 0 HASTA R-1 HACER
+    LIBERAR m1[i]
+  FIN PARA
+  LIBERAR m1
+
+FIN

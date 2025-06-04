@@ -1,0 +1,53 @@
+INICIO
+
+  CONSTANTE R ← 4
+  MOSTRAR "Ingrese el número de items"
+  LEER n
+
+  CREAR matriz itemInfo[2][n]  
+  CREAR matriz m1[R][n]        
+
+  totalStock ← 0
+  totalStockPrice ← 0
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    MOSTRAR "Ingrese el ID del item #", c+1
+    LEER itemInfo[0][c]
+
+    MOSTRAR "Ingrese el nombre del item #", c+1
+    LEER itemInfo[1][c]
+
+    PARA r DESDE 0 HASTA R - 2 HACER
+      SI r = 0 ENTONCES MOSTRAR "Ingrese el stock:"
+      SI r = 1 ENTONCES MOSTRAR "Ingrese el límite de stock:"
+      SI r = 2 ENTONCES MOSTRAR "Ingrese el precio por unidad:"
+      LEER m1[r][c]
+    FIN PARA
+
+    m1[3][c] ← m1[0][c] * m1[2][c]  
+  FIN PARA
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    SI m1[0][c] < m1[1][c] ENTONCES
+      MOSTRAR "ALERTA: Stock del item ", itemInfo[1][c], 
+              " con ID ", itemInfo[0][c], " es menor al límite"
+    FIN SI
+  FIN PARA
+
+
+  MOSTRAR "ID\tNombre\tStock\tLímite\tPrecio\tTotal"
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    MOSTRAR itemInfo[0][c], itemInfo[1][c], m1[0][c], m1[1][c], m1[2][c], m1[3][c]
+  FIN PARA
+
+
+  PARA c DESDE 0 HASTA n - 1 HACER
+    totalStockPrice ← totalStockPrice + m1[3][c]
+    totalStock ← totalStock + m1[0][c]
+  FIN PARA
+
+  MOSTRAR "El precio total del stock es: ", totalStockPrice
+  MOSTRAR "El total de stock es: ", totalStock
+
+FIN
