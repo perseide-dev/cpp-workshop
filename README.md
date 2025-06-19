@@ -1,15 +1,15 @@
-# Practicas de taller de C++
+# Prácticas de taller de C++
 
-Este repositorio contiene una coleccion de practicas en C++ centradas en sistemas de gestion de inventario.
+Este repositorio contiene una colección de prácticas en C++ centradas en sistemas de gestión de inventario.
 
-## Practica 4 - Sistema Basico de Inventario
+## Práctica 4 - Sistema Básico de Inventario
 
-### Descripcion
-Un sistema sencillo de gestion de inventario que utiliza matrices estaticas que:
-- Almacena los ID y nombres de los articulos
-- Controla los niveles y limites de existencias
+### Descripción
+Un sistema sencillo de gestión de inventario que utiliza matrices estáticas que:
+- Almacena los ID y nombres de los artículos
+- Controla los niveles y límites de existencias
 - Calcula precios unitarios y valores totales
-- Proporciona alertas de existencias cuando los niveles estan por debajo de los limites
+- Proporciona alertas de existencias cuando los niveles están por debajo de los límites
 
 ### Diagrama de flujo
 ```mermaid
@@ -26,13 +26,13 @@ I --> J[Calcular y mostrar totales]
 J --> K[Fin]
 ```
 
-## Practica 5 - Inventario con Memoria Dinamica
+## Práctica 5 - Inventario con Memoria Dinámica
 
-### Descripcion
-Una version mejorada de la Practica 4 con asignacion dinamica de memoria:
-- Utiliza matrices dinamicas para los datos de los articulos
-- Implementa una gestion adecuada de la memoria
-- Mantiene la misma funcionalidad que la Practica 4
+### Descripción
+Una versión mejorada de la Práctica 4 con asignación dinámica de memoria:
+- Utiliza matrices dinámicas para los datos de los artículos
+- Implementa una gestión adecuada de la memoria
+- Mantiene la misma funcionalidad que la Práctica 4
 - Incluye limpieza de memoria
 
 ### Diagrama de flujo
@@ -50,12 +50,12 @@ I --> J[Liberar memoria]
 J --> K[Fin]
 ```
 
-## Practica 6 - Inventario con Matriz Fija
+## Práctica 6 - Inventario con Matriz Fija
 
-### Descripcion
-Una variacion que utiliza matrices de tamano fijo:
-- Utiliza matrices 2D para la informacion de los articulos
-- Implementa la gestion de existencias
+### Descripción
+Una variación que utiliza matrices de tamaño fijo:
+- Utiliza matrices 2D para la información de los artículos
+- Implementa la gestión de existencias
 - Calcula los valores del inventario
 - Proporciona alertas de stock
 
@@ -71,12 +71,12 @@ F --> G[Calcular totales]
 G --> H[Fin]
 ```
 
-## Practica 7 - Inventario Dinamico Avanzado
+## Práctica 7 - Inventario Dinámico Avanzado
 
-### Descripcion
-La version mas sofisticada con:
-- Gestion totalmente dinamica de la memoria
-- Organizacion mejorada de los datos
+### Descripción
+La versión más sofisticada con:
+- Gestión totalmente dinámica de la memoria
+- Organización mejorada de los datos
 - Interfaz de usuario mejorada
 - Seguimiento completo del inventario
 
@@ -93,10 +93,10 @@ G --> H[Limpieza de memoria]
 H --> I[Fin]
 ```
 
-## Caracteristicas Comunes en Todas las Practicas
+## Características Comunes en Todas las Prácticas
 
 - Seguimiento del nivel de existencias
-- Calculo de precios
+- Cálculo de precios
 - Alertas de inventario
-- Visualizacion de datos en tablas
-- Calculo del valor total
+- Visualización de datos en tablas
+- Cálculo del valor total
